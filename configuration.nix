@@ -41,7 +41,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ wget vim git chromium st thunderbird vscode discord feh terminator cmake clang glfw glm arandr pavucontrol ];
+  environment.systemPackages = with pkgs; [ wget vim git chromium vlc st thunderbird vscode discord feh terminator cmake clang arandr pavucontrol ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -79,6 +79,7 @@
   
   services.xserver.windowManager.xmonad.enable = true;
   services.xserver.windowManager.i3.enable = true;
+  services.xserver.desktopManager.xfce.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.driSupport32Bit = true;
 
