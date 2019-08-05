@@ -41,7 +41,7 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [ wget vim git chromium vlc st thunderbird vscode discord feh terminator cmake clang arandr pavucontrol ];
+  environment.systemPackages = with pkgs; [ wget vim git chromium vlc st thunderbird vscode discord feh terminator cmake clang arandr pavucontrol wine ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
