@@ -1,5 +1,5 @@
 # nixconf
-My personal NixOs Configuration and various other dotfiles and helpers.
+My personal NixOS Configuration and various other dotfiles and helpers.
 Feel free to fork.
 
 ## LinkDotfiles.sh
