@@ -41,7 +41,6 @@
       vscode
       discord 
       transmission 
-      feh
       arandr 
       pavucontrol 
       wine 
@@ -75,10 +74,6 @@
         i3lock
         i3blocks
       ];
-    };
-    
-    desktopManager.xfce = {
-      enable = true;
     };
 
   };
