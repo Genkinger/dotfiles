@@ -6,81 +6,86 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
     ];
 
 
-  nixpkgs.config.allowUnfree = true;
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.useOSProber = true;
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  # Define on which hard drive you want to install Grub.
-  boot.loader.grub.device = "/dev/sda"; # or "nodev" for efi only
+  nixpkgs.config = {
+    allowUnfree = true;
+  };
+  
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    useOSProber = true;
+    device = "/dev/sda"; 
+   };
 
-  # networking.hostName = "nixos"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n = {
-  #   consoleFont = "Lat2-Terminus16";
-  #   consoleKeyMap = "us";
-  #   defaultLocale = "en_US.UTF-8";
-  # };
-
-  # Set your time zone.
   time.timeZone = "Europe/Berlin";
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [ wget vim git chromium vlc st thunderbird vscode discord feh terminator cmake clang arandr pavucontrol wine ];
+  environment = {
+    systemPackages = with pkgs; [ 
+      wget 
+      vim 
+      git 
+      compton 
+      ranger 
+      zsh
+      tmux 
+      rofi 
+      chromium 
+      vlc 
+      st 
+      zip 
+      unzip 
+      thunderbird 
+      vscode
+      discord 
+      transmission 
+      feh 
+      terminator
+      termite 
+      cmake 
+      clang 
+      arandr 
+      pavucontrol 
+      wine 
+      winetricks 
+      scrot
+      
+      ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # Enable CUPS to print documents.
+    pathsToLink = [ "/libexec" ];
+  };
+  
   services.printing.enable = true;
 
-  # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # services.xserver.xkbOptions = "eurosign:e";
+  services.xserver = {
+    enable = true;
+    layout = "us";
+    wacom.enable = true;
+    videoDrivers = [ "nvidia" ];
 
-  # Enable touchpad support.
-  # services.xserver.libinput.enable = true;
+    windowManager.i3 = { 
+      enable = true;
+      package = pkgs.i3-gaps;
+      extraPackages = with pkgs; [
+        dmenu
+        i3status
+        i3lock
+        i3blocks
+      ];
+    };
+    
+    desktopManager.xfce = {
+      enable = true;
+    };
 
-  # Enable the KDE Desktop Environment.
-  # services.xserver.displayManager.sddm.enable = true;
-  
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.xserver.desktopManager.xfce.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  };
   hardware.opengl.driSupport32Bit = true;
 
   fileSystems = {
@@ -90,19 +95,13 @@
 	};
  };
 
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.genkinger = {
       	isNormalUser = true;
-      	extraGroups = [ "wheel" ];
-	home = "/home/genkinger";
-	description = "Lukas Genkinger";
+      	extraGroups = [ "wheel" "audio" "video" ];
+	      home = "/home/genkinger";
+	      description = "Lukas Genkinger";
     };
 
-  # This value determines the NixOS release with which your system is to be
-  # compatible, in order to avoid breaking some software such as database
-  # servers. You should change this only after NixOS release notes say you
-  # should.
   system.stateVersion = "19.03"; # Did you read the comment?
 
   boot.supportedFilesystems = [ "zfs" ];
@@ -118,6 +117,10 @@
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
       source-code-pro
+      nerdfonts
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
     ];
   };
 
