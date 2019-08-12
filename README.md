@@ -1,2 +1,5 @@
 # nixconf
-helper for managing unix config files
+My personal nixos configuration
+
+## dotfiles
+other dotfiles for things like i3, kitty, etc

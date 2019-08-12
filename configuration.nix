@@ -32,22 +32,16 @@
       compton 
       ranger 
       zsh
-      tmux 
       rofi 
       chromium 
       vlc 
-      st 
       zip 
       unzip 
       thunderbird 
       vscode
       discord 
       transmission 
-      feh 
-      terminator
-      termite 
-      cmake 
-      clang 
+      feh
       arandr 
       pavucontrol 
       wine 
@@ -55,6 +49,7 @@
       scrot
       htop
       gotop
+      kitty
       ];
 
     pathsToLink = [ "/libexec" ];
