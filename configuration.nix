@@ -53,7 +53,8 @@
       wine 
       winetricks 
       scrot
-      
+      htop
+      gotop
       ];
 
     pathsToLink = [ "/libexec" ];
