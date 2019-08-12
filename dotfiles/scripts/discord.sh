@@ -1,0 +1,1 @@
+PULSE_LATENCY_MSEC=90 Discord &
