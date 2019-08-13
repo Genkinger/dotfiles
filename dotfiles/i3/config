@@ -38,7 +38,7 @@ bindsym $mod+t exec termite
 bindsym $mod+Return exec kitty
 #mouse_warping none
 
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 0
 for_window [title="^Telegram"] floating enable
 for_window [class="Slack"] floating enable
 for_window [title="^galculator"] floating enable

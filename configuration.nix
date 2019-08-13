@@ -37,7 +37,7 @@
       vlc 
       zip 
       unzip 
-      thunderbird 
+      thunderbird
       vscode
       discord 
       transmission 
