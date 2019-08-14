@@ -37,6 +37,7 @@
       vlc 
       zip 
       unzip 
+      feh
       thunderbird
       vscode
       discord 
