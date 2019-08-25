@@ -3,4 +3,5 @@
 export vblank_mode=0
 export WINEARCH=win32
 export WINEPREFIX=$HOME/osu-wine
+export PULSE_LATENCY_MSEC=0
 wine ~/osufolder/osu\!.exe "$@"

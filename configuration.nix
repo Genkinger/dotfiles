@@ -53,6 +53,9 @@
       ];
 
     pathsToLink = [ "/libexec" ];
+    variables = {
+      PULSE_LATENCY_MSEC = "90" ;
+    };
   };
   
   services.printing.enable = true;
@@ -105,6 +108,7 @@
 
   fonts = {
     fontconfig.enable = true;
+    fontconfig.ultimate.enable = true;
     enableFontDir = true;
     enableGhostscriptFonts = true;
     fonts = with pkgs; [
@@ -113,7 +117,26 @@
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
+      ipafont
+      kochi-substitute
+    ];
+    fontconfig.defaultFonts = {
+    monospace = [
+      "DejaVu Sans Mono"
+      "IPAGothic"
+    ];
+    sansSerif = [
+      "DejaVu Sans"
+      "IPAPGothic"
+    ];
+    serif = [
+      "DejaVu Serif"
+      "IPAPMincho"
     ];
   };
+  };
+
+  i18n.inputMethod.enabled = "fcitx";
+   i18n.inputMethod.fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
 
 }
