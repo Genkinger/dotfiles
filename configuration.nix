@@ -49,12 +49,26 @@
       scrot
       htop
       gotop
+      nim
+      ldc
+      dmd
+      dub
       kitty
+      anydesk
+      farbfeld
+      ghostscript
+      geogebra
+      openvpn
+      jetbrains.rider
+      jetbrains.clion
+      dotnet-sdk
+      texlive.combined.scheme-full
+      mono
       ];
 
     pathsToLink = [ "/libexec" ];
     variables = {
-      PULSE_LATENCY_MSEC = "90" ;
+      #PULSE_LATENCY_MSEC = "90" ;
     };
   };
   
@@ -104,6 +118,10 @@
   networking = {
 	  hostId = "DEADBEEF";
 	  hostName =  "VirgoNix";
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ 80 ];
+    };
   };
 
   fonts = {
