@@ -1,4 +1,2 @@
-CWD=$(pwd)
-
-sudo cp "$CWD/configuration.nix" /etc/nixos/
+sudo cp ./*configuration.nix /etc/nixos/
 sudo nixos-rebuild switch $@
