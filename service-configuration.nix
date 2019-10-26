@@ -2,7 +2,7 @@
 
 {
     imports = [
-        #./video-xserver-configuration.nix
+        ./video-xserver-configuration.nix
         ./video-wayland-configuration.nix
     ];
     

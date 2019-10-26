@@ -15,6 +15,7 @@
             ipafont
             kochi-substitute
 	    terminus_font
+	    cherry
         ];
 
         fontconfig.defaultFonts = {

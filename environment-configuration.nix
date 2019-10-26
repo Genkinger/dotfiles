@@ -39,6 +39,10 @@ environment = {
         texlive.combined.scheme-full
         solvespace
 	alacritty
+	xdg_utils
+	emacs
+	obs-studio
+	krita
     ];
 
     pathsToLink = [ "/libexec" ];

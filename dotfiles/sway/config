@@ -10,8 +10,8 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec
 
 
 default_border none
-gaps inner 10
-gaps outer 5
+exec swaymsg gaps inner all set 20
+exec swaymsg gaps outer all set 10
 
 ### Output configuration
 #
@@ -19,7 +19,7 @@ gaps outer 5
 #
 # Example configuration:
 #
-output * bg ~/media/wallpapers/128751.jpg fill
+output * bg ~/media/wallpapers/minimal.png fill
 output HDMI-A-1 res 1980x1080 pos 0,0
 output DVI-D-1 res 2560x1080 pos 0,1080
 #

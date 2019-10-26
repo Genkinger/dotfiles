@@ -35,7 +35,7 @@ client.background       $white
 floating_modifier $mod
 popup_during_fullscreen smart
 bindsym $mod+t exec termite
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 #mouse_warping none
 
 for_window [class="^.*"] border pixel 0
@@ -242,7 +242,7 @@ bar {
     strip_workspace_numbers no
     tray_output primary
     mode dock
-    position top
+    position bottom 
     height 23
     font pango: Iosevka Nerd Font Regular 16
     colors {
