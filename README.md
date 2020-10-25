@@ -2,10 +2,6 @@
 My personal NixOS Configuration and various other dotfiles and helpers.
 Feel free to fork.
 
-## LinkDotfiles.sh
-Helper script.
-SymLinks the dotfiles to their respective positions (i3, kitty, vim etc.)
-
-## UpdateConfig.sh
-Helper script. 
-Copies the `configuration.nix` to `/etc/nixos/configuration.nix` and calls `nixos-rebuild switch`.
+## install.hs
+A little helper script that can be used to update configuration.nix and to symlink dotfiles to their respective targets.
+(NOTE: Written in Haskell. Needs GHC and Turtle to work properly!)
