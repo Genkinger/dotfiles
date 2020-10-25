@@ -1,0 +1,1 @@
+/home/lucy/.emacs.d/straight/repos/nix-mode/nix-format.el

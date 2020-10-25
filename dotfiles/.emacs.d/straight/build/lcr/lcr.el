@@ -1,0 +1,1 @@
+/home/lucy/.emacs.d/straight/repos/lcr/lcr.el

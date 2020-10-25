@@ -74,3 +74,8 @@
 (use-package gruber-darker-theme
   :straight t
   )
+
+(use-package nix-mode
+  :straight t
+  :mode "\\.nix\\'"
+  )
