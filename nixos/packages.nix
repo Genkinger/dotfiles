@@ -16,7 +16,7 @@
     wget
     gthumb
     feh
-    neovim
+    neovim-unwrapped
     kitty
     qpwgraph
     kitty-themes

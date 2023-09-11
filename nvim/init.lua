@@ -1,2 +1,3 @@
 require("leah")
-print("Hello from lua")
+require("colorizer").setup()
+
