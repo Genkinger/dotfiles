@@ -1,4 +1,4 @@
-package.path = os.getenv("HOME") .. "/.config/nvim/?.lua;" .. package.path
+package.path = os.getenv("HOME") .. "/.config/nvim/site/?/lua/?.lua;" .. package.path
 
 require("leah")
 require("colorizer").setup()
