@@ -1,3 +1,6 @@
-[submodule "nvim/site/nvim-colorizer.lua"]
-	path = nvim/site/nvim-colorizer.lua
-	url = https://github.com/norcalli/nvim-colorizer.lua.git
+[submodule "nvim/site/telescope.nvim"]
+	path = nvim/site/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim.git
+[submodule "nvim/site/plenary.nvim"]
+	path = nvim/site/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim.git

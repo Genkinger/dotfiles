@@ -1,4 +1,8 @@
 require("leah.packagepath")
-require("leah.remap")
+require("leah.packages")
 
-vim.opt.termguicolors = true
+
+
+
+
+require("leah.remap")

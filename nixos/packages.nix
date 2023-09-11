@@ -12,6 +12,7 @@
     firefox
     pcmanfm
     chromium
+    ripgrep
     xarchiver
     wget
     gthumb
