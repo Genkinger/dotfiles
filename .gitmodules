@@ -1,0 +1,3 @@
+[submodule "nvim/site/nvim-colorizer.lua"]
+	path = nvim/site/nvim-colorizer.lua
+	url = https://github.com/norcalli/nvim-colorizer.lua.git
