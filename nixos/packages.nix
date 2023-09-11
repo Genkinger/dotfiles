@@ -27,5 +27,11 @@
     scream
     unrar
     fzf
+    (python310.withPackages(ps: [ps.matplotlib ps.torch ps.opencv4 ps.python-lsp-server]))
+    go
+    gcc
+    zig
+    oh-my-zsh
+    zsh
   ];
 }
