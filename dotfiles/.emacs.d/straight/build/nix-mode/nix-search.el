@@ -1,1 +1,0 @@
-/home/lucy/.emacs.d/straight/repos/nix-mode/nix-search.el

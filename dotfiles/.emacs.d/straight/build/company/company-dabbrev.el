@@ -1,1 +1,0 @@
-/home/lucy/.emacs.d/straight/repos/company-mode/company-dabbrev.el
