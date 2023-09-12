@@ -1,5 +1,5 @@
 { pkgs, ... }: {
-  environment.systemPackages = with pkgs; [
+    environment.systemPackages = with pkgs; [
     discord
     spotify
     flameshot
@@ -18,8 +18,10 @@
     gthumb
     tree-sitter
     feh
-    neovim-unwrapped
+    nil
+    clang-tools
     kitty
+    helix   
     qpwgraph
     kitty-themes
     pavucontrol
