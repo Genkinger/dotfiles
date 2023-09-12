@@ -21,6 +21,7 @@
     nil
     clang-tools
     kitty
+    marksman
     helix   
     qpwgraph
     kitty-themes
