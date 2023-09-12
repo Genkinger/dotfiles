@@ -1,9 +1,0 @@
-[submodule "nvim/site/telescope.nvim"]
-	path = nvim/site/telescope.nvim
-	url = https://github.com/nvim-telescope/telescope.nvim.git
-[submodule "nvim/site/plenary.nvim"]
-	path = nvim/site/plenary.nvim
-	url = https://github.com/nvim-lua/plenary.nvim.git
-[submodule "nvim/site/nvim-treesitter"]
-	path = nvim/site/nvim-treesitter
-	url = https://github.com/nvim-treesitter/nvim-treesitter.git

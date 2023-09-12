@@ -16,6 +16,7 @@
     xarchiver
     wget
     gthumb
+    tree-sitter
     feh
     neovim-unwrapped
     kitty
