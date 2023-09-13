@@ -26,6 +26,7 @@
     qpwgraph
     kitty-themes
     pavucontrol
+    black
     virt-manager
     arandr
     looking-glass-client
