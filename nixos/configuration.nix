@@ -65,7 +65,8 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
   programs.ssh.startAgent = true; 
- 
+  environment.variables.RANGER_LOAD_DEFAULT_RC= "false";
+  environment.variables.EDITOR = "hx"; 
  environment.shells = with pkgs; [ zsh ];
   users.users.leah = {
     isNormalUser = true;

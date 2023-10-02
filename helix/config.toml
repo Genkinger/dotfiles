@@ -1,1 +1,17 @@
 theme = "everforest_dark"
+
+[editor]
+bufferline = "multiple"
+completion-trigger-len = 1
+idle-timeout = 5
+line-number = "relative"
+auto-pairs = false
+text-width = 160
+
+[editor.lsp]
+display-inlay-hints = true
+
+[editor.soft-wrap]
+enable = true
+wrap-at-text-width = true
+
