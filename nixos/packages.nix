@@ -2,6 +2,8 @@
     environment.systemPackages = with pkgs; [
     discord
     spotify
+    obsidian
+    openvpn
     flameshot
     inkscape
     vlc
@@ -28,16 +30,14 @@
     renoise
     clang-tools
     jdk17
-    # jdk
     kitty
     julia
     marksman
-    helix   
-    # minecraft
     prismlauncher
     zotero
     texlab
     texlive.combined.scheme-full
+    tectonic
     zathura
     reaper
     groff
@@ -47,19 +47,21 @@
     pavucontrol
     xclip
     black
+    treesheets
     virt-manager
     arandr
     looking-glass-client
     scream
     unrar
     fzf
-    (python311.withPackages(ps: [ps.matplotlib ps.torch-bin (ps.opencv4.override { enableGtk2 = true; }) ps.python-lsp-server ps.rope ps.pyflakes ps.pyglet ps.pyaudio ps.bokeh ps.pandas]))
+    (python311.withPackages(ps: [ps.matplotlib ps.torch-bin (ps.opencv4.override { enableGtk2 = true; }) ps.python-lsp-server ps.rope ps.scikit-learn ps.pyflakes ps.pyglet ps.pyaudio ps.bokeh ps.pandas ps.scipy ps.click ps.seaborn]))
     go
     gopls
     gcc
     raylib
     nix-index
     zig
+    zls
     oh-my-zsh
     ranger
     highlight
@@ -68,7 +70,9 @@
     teams
     tmux
     xorg.xkill
+    ltex-ls
     w3m
+    rustup
     zsh
   ];
 }

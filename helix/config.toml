@@ -9,6 +9,7 @@ auto-pairs = false
 text-width = 160
 
 [editor.lsp]
+display-messages = true
 display-inlay-hints = true
 
 [editor.soft-wrap]

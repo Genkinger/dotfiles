@@ -13,11 +13,15 @@
   ];
 
   nixpkgs.config.allowUnfree = true;
+  # nixpkgs.config.cudaSupport = true;
 
   hardware.bluetooth.enable = true;
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
   hardware.opengl.enable = true;
+  hardware.opengl.extraPackages = [
+    pkgs.rocm-opencl-icd
+  ];
   hardware.sane.enable = true;
 
   boot.loader.systemd-boot.enable = true;
@@ -33,7 +37,7 @@
   boot.kernelParams = [ "amd_iommu=on" "vfio-pci.ids=10de:13c2,10de:0fbb" ];
   boot.supportedFilesystems = [ "ntfs" ];
 
-  systemd.tmpfiles.rules = [ "f /dev/shm/looking-glass 0600 leah libvirtd -" ];
+  systemd.tmpfiles.rules = [ "f /dev/shm/looking-glass 0600 leah libvirtd -" "L+  /opt/rocm/hip  -  -  -  -  ${pkgs.hip}"];
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;

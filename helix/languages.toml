@@ -8,3 +8,13 @@ args = [
   "--quiet",
   "--line-length=100"
 ]
+
+
+[[language]]
+name = "latex"
+language-servers = ["texlab","ltex"]
+
+[language-server.ltex]
+command = "ltex-ls"
+[language-server.texlab.config.texlab.build]
+onSave = true
