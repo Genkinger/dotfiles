@@ -31,6 +31,7 @@
     clang-tools
     jdk17
     kitty
+    gnuplot_qt
     julia
     marksman
     prismlauncher
@@ -73,6 +74,7 @@
     ltex-ls
     w3m
     rustup
+    rlwrap
     zsh
   ];
 }
