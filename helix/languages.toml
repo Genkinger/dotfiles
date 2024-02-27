@@ -12,9 +12,32 @@ args = [
 
 [[language]]
 name = "latex"
-language-servers = ["texlab","ltex"]
+language-servers = ["texlab"]
 
 [language-server.ltex]
 command = "ltex-ls"
 [language-server.texlab.config.texlab.build]
 onSave = true
+
+
+[language-server]
+ols = { command = "ols", args = []}
+
+
+[[language]]
+name = "odin"
+#auto-format = false
+scope = "scope.odin" # "source.odin"
+file-types = ["odin"]
+roots = ["ols.json"]
+language-servers = [ "ols" ]
+comment-token = "//"
+indent = { tab-width = 2, unit = " " }
+injection-regex = "odin"
+formatter = { command = "odinfmt", args = [ "-stdin", "true" ] }
+
+[[grammar]]
+name = "odin"
+#source = { git = "https://github.com/ap29600/tree-sitter-odin", rev = "b219207e49ffca2952529d33e94ed63b1b75c4f1" }
+source = { git = "https://github.com/amaanq/tree-sitter-odin" }
+

@@ -3,9 +3,9 @@ font pango:monospace 8
 
 exec --no-startup-id dex --autostart --environment i3
 for_window [class="^.*"] border pixel 0 
-gaps inner 5
-gaps outer 5
-border_radius 4
+gaps inner 0
+gaps outer 0
+border_radius 0
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id nm-applet
@@ -23,6 +23,8 @@ bindsym $mod+Return exec kitty
 bindsym $mod+Shift+q kill
 
 bindsym $mod+d exec --no-startup-id dmenu_run
+
+bindsym $mod+Shift+p exec --no-startup-id ~/.config/i3/togglekbmap.sh
 
 bindsym $mod+j focus left
 bindsym $mod+k focus down
@@ -118,6 +120,6 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
-
-
-exec ~/.screenlayout/default.sh
+workspace_layout tabbed
+#exec ~/.screenlayout/default.sh
+exec ~/.screenlayout/default_singlemonitor.sh

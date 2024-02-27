@@ -1,4 +1,4 @@
-theme = "everforest_dark"
+theme = "monokai"
 
 [editor]
 bufferline = "multiple"
@@ -8,6 +8,7 @@ line-number = "relative"
 auto-pairs = false
 text-width = 160
 
+
 [editor.lsp]
 display-messages = true
 display-inlay-hints = true
@@ -16,3 +17,5 @@ display-inlay-hints = true
 enable = true
 wrap-at-text-width = true
 
+# [editor.indent-guides]
+# render = true
