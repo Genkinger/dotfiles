@@ -1,5 +1,9 @@
-{ config, pkgs, ... }: {
-  imports = [ ./hardware-configuration.nix ];
+{
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix];
 
   nixpkgs.config.allowUnfree = true;
   hardware.bluetooth.enable = true;
@@ -11,10 +15,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.initrd.kernelModules =
-    [ "vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd" "amdgpu" ];
-  boot.kernelParams = [ "amd_iommu=on" "vfio-pci.ids=10de:13c2,10de:0fbb" ];
-  boot.supportedFilesystems = [ "ntfs" ];
+  boot.initrd.kernelModules = ["vfio_pci" "vfio" "vfio_iommu_type1" "vfio_virqfd" "amdgpu"];
+  boot.kernelParams = ["amd_iommu=on" "vfio-pci.ids=10de:13c2,10de:0fbb"];
+  boot.supportedFilesystems = ["ntfs"];
 
   systemd.tmpfiles.rules = [
     "f /dev/shm/looking-glass 0600 leah libvirtd -"
@@ -24,9 +27,9 @@
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   networking.firewall = {
-    enable = true;
-    allowedUDPPorts = [ 4010 25565 ];
-    allowedTCPPorts = [ 25565 ];
+    enable = false;
+    allowedUDPPorts = [4010 25565];
+    allowedTCPPorts = [25565];
   };
 
   time.timeZone = "Europe/Berlin";
@@ -51,96 +54,140 @@
   programs.zsh.enable = true;
   programs.dconf.enable = true;
   programs.ssh.startAgent = true;
-  environment.variables.RANGER_LOAD_DEFAULT_RC = "false";
-  environment.variables.EDITOR = "hx";
-  environment.shells = with pkgs; [ zsh ];
-  environment.systemPackages = with pkgs; [
-    bottles
-    nixfmt
-    discord
-    vscode-langservers-extracted
-    distrho
-    vital
-    transmission_4-gtk
-    spotify
-    ols
-    odin
-    mpv
-    flameshot
-    inkscape
-    emacs-gtk
-    xournalpp
-    git
-    ffmpeg
-    audacity
-    pandoc
-    firefox
-    pcmanfm
-    unzip
-    chromium
-    libreoffice-fresh
-    ripgrep
-    htop
-    xarchiver
-    wget
-    gthumb
-    tree-sitter
-    prusa-slicer
-    feh
-    nil
-    renoise
-    clang-tools
-    jdk17
-    kitty
-    graphite2
-    marksman
-    prismlauncher
-    zathura
-    reaper
-    qpwgraph
-    kitty-themes
-    pavucontrol
-    xclip
-    black
-    virt-manager
-    arandr
-    looking-glass-client
-    scream
-    unrar
-    fzf
-    (python311.withPackages (ps: [
-      ps.matplotlib
-      ps.torch-bin
-      ps.opencv4
-      ps.python-lsp-server
-      ps.rope
-      ps.scikit-learn
-      ps.pyflakes
-      ps.pyglet
-      ps.pyaudio
-      ps.bokeh
-      ps.pandas
-      ps.scipy
-      ps.click
-      ps.seaborn
-    ]))
-    zig
-    zls
-    oh-my-zsh
-    ranger
-    highlight
-    ffmpegthumbnailer
-    atool
-    tmux
-    xorg.xkill
-    rustup
-    zsh
-  ];
+  programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [libnghttp2];
+  programs.virt-manager.enable = true;
+  environment.shells = with pkgs; [zsh];
+
+  environment.systemPackages = let
+    unstable = import <nixos-unstable> {config = {allowUnfree = true;};};
+    development = with pkgs; [
+      odin
+      ols
+      zig
+      zls
+      gcc
+      alejandra
+      clang-tools
+      nil
+      tree-sitter
+      vscode-langservers-extracted
+      marksman
+      black
+      rustup
+      jdk17
+      emacs-gtk
+      highlight
+      (python311.withPackages (ps: [
+        ps.matplotlib
+        ps.torch-bin
+        ps.opencv4
+        ps.python-lsp-server
+        ps.rope
+        ps.scikit-learn
+        ps.pyflakes
+        ps.pyglet
+        ps.pyaudio
+        ps.bokeh
+        ps.pandas
+        ps.scipy
+        ps.click
+        ps.seaborn
+      ]))
+      raylib
+      unstable.helix
+      cmake
+    ];
+    audio = with pkgs; [
+      unstable.reaper
+      renoise
+      audacity
+      pavucontrol
+      qpwgraph
+      vcv-rack
+      libnghttp2
+      nghttp2
+      unstable.surge-XT
+      unstable.helm
+      unstable.yabridge
+      unstable.zam-plugins
+      unstable.oxefmsynth
+      unstable.vital
+      unstable.distrho
+      unstable.dexed
+      unstable.wolf-shaper
+      unstable.bchoppr
+      unstable.bshapr
+      unstable.bslizr
+      unstable.calf
+      unstable.lsp-plugins
+      unstable.airwindows-lv2
+      unstable.dragonfly-reverb
+      unstable.x42-plugins
+      unstable.ChowKick
+      unstable.ChowPhaser
+      unstable.ChowCentaur
+      unstable.CHOWTapeModel
+      unstable.geonkick
+      unstable.odin2
+    ];
+    media = with pkgs; [
+      mpv
+      ffmpeg
+      feh
+      zathura
+    ];
+    graphicalSoftware = with pkgs; [
+      transmission_4-gtk
+      inkscape
+      discord
+      bottles
+      spotify
+      xournalpp
+      firefox
+      pcmanfm
+      gthumb
+      libreoffice-fresh
+      xarchiver
+      prusa-slicer
+      chromium
+      prismlauncher
+      flameshot
+      ffmpegthumbnailer
+    ];
+    tools = with pkgs; [
+      git
+      unstable.jujutsu
+      pandoc
+      unzip
+      ripgrep
+      htop
+      wget
+      fzf
+      unrar
+      arandr
+      graphite2
+      kitty
+      kitty-themes
+      xorg.xkill
+      xclip
+      virt-manager
+      looking-glass-client
+      scream
+      oh-my-zsh
+      ranger
+      atool
+      tmux
+      zsh
+      stow
+    ];
+  in
+    tools ++ audio ++ development ++ media ++ graphicalSoftware;
+
   users.users.leah = {
     isNormalUser = true;
     description = "Leah";
-    extraGroups =
-      [ "networkmanager" "wheel" "libvirtd" "lp" "scanner" "dialout" ];
+    extraGroups = ["networkmanager" "wheel" "libvirtd" "lp" "scanner" "dialout"];
     shell = pkgs.zsh;
   };
   fileSystems."/mnt/files" = {
@@ -160,13 +207,13 @@
   services.printing.enable = true;
   services.blueman.enable = true;
   services.xserver = {
-    videoDrivers = [ "amdgpu" ];
+    videoDrivers = ["amdgpu"];
     enable = true;
-    displayManager = { defaultSession = "none+i3"; };
+    displayManager = {defaultSession = "none+i3";};
     windowManager.i3 = {
       enable = true;
       package = pkgs.i3-rounded;
-      extraPackages = with pkgs; [ dmenu i3status i3lock i3blocks ];
+      extraPackages = with pkgs; [dmenu i3status i3lock i3blocks];
     };
     wacom.enable = true;
     layout = "us";
@@ -184,15 +231,45 @@
     settings = {
       shadow = true;
       full-shadow = true;
+      shadow-opacity  = 0.5;
       fading = true;
       backend = "glx";
+      active-opacity = 1;
+      inactive-opacity = 0.75;
+      blur-method = "dual_kawase";
+      blur-strength = 3;
+      # corner-radius = 10;
+      rounded-corners-exclude = ["class_g = 'i3bar'"];
     };
+    opacityRules = [
+      "100:class_g = 'firefox'"
+    ];
   };
   services.avahi = {
     enable = true;
     nssmdns = true;
     openFirewall = true;
   };
+
+  environment.variables = let
+    makePluginPath = format:
+      (pkgs.lib.strings.makeSearchPath format [
+        "$HOME/.nix-profile/lib"
+        "/run/current-system/sw/lib"
+        "/etc/profiles/per-user/$USER/lib"
+      ])
+      + ":$HOME/.${format}";
+  in {
+    DSSI_PATH   = makePluginPath "dssi";
+    LADSPA_PATH = makePluginPath "ladspa";
+    LV2_PATH    = makePluginPath "lv2";
+    LXVST_PATH  = makePluginPath "lxvst";
+    VST_PATH    = makePluginPath "vst";
+    VST3_PATH   = makePluginPath "vst3";
+    RANGER_LOAD_DEFAULT_RC = "false";
+    EDITOR = "hx";
+  };
+  
 
   systemd.services.libvirtd.preStart = let
     qemuHook = pkgs.writeScript "qemu-hook" ''
@@ -215,13 +292,12 @@
       fi
     '';
   in ''
-      		mkdir -p /var/lib/libvirt/hooks
-      		chmod 755 /var/lib/libvirt/hooks
+    mkdir -p /var/lib/libvirt/hooks
+    chmod 755 /var/lib/libvirt/hooks
 
-      		# Copy hook files
-      		ln -sf ${qemuHook} /var/lib/libvirt/hooks/qemu
-    	'';
+    # Copy hook files
+    ln -sf ${qemuHook} /var/lib/libvirt/hooks/qemu
+  '';
   # DO NOT CHANGE THIS VERSION
   system.stateVersion = "22.05";
-
 }
