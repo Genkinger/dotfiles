@@ -64,6 +64,7 @@
     stow
     gthumb
     pcmanfm
+    just
     bottles
   ];
   # services.tlp = {
