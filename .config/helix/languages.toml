@@ -41,3 +41,5 @@ name = "odin"
 #source = { git = "https://github.com/ap29600/tree-sitter-odin", rev = "b219207e49ffca2952529d33e94ed63b1b75c4f1" }
 source = { git = "https://github.com/amaanq/tree-sitter-odin" }
 
+[language-server.clangd]
+args = [ "--query-driver=/nix/store/7zrbj0f8pwvard552qm736c0w2v3s8s9-gcc-arm-embedded-12.3.rel1/bin/arm-none-eabi-gcc" ]

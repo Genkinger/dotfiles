@@ -5,7 +5,6 @@ exec --no-startup-id dex --autostart --environment i3
 for_window [class="^.*"] border pixel 0 
 gaps inner 10
 gaps outer 20
-border_radius 0
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 exec --no-startup-id nm-applet
@@ -122,7 +121,7 @@ set $lightgray #bdae93
 
 bar {
     position top
-    status_command i3blocks
+    status_command i3status #i3blocks
     colors {
         # bar background color
         background $bg
