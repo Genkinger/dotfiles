@@ -67,6 +67,7 @@
     gthumb
     pcmanfm
     just
+    unzip
     bottles
   ];
   # services.tlp = {
