@@ -59,6 +59,8 @@
     lxappearance
     unstable.jujutsu
     unstable.factorio
+    bc
+    neovim
     tmux
     emacs
     stow
