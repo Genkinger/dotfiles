@@ -9,7 +9,6 @@ line-number = "relative"
 auto-pairs = false
 text-width = 180
 
-
 [editor.lsp]
 display-messages = true
 display-inlay-hints = false
@@ -17,8 +16,7 @@ display-inlay-hints = false
 [editor.soft-wrap]
 enable = true
 wrap-at-text-width = true
-max-indent-retain = 80
-max-wrap = 25
 
-# [editor.indent-guides]
-# render = true
+[editor.file-picker]
+hidden = false
+
