@@ -105,6 +105,7 @@ unsetopt BEEP
 
 alias lg="lazygit"
 alias gs="git status"
+alias rebuild="sudo nixos-rebuild switch --flake ~/nixos-config"
 alias vim="nvim"
 alias -s webp=feh
 alias -s png=feh
