@@ -4,7 +4,8 @@
 
 (setq inhibit-startup-message t)
 (setq backup-directory-alist `(("." .  (expand-file-name "~/.emacs-backups"))))
-(set-face-attribute 'default nil :height 140)
+(set-face-attribute 'default nil :height 130)
+(set-frame-font "BigBlue Terminal 437TT" nil t)
 (global-display-line-numbers-mode)
 (put 'suspend-frame 'disabled t)
 (setq make-backup-files nil)
@@ -43,11 +44,14 @@
     :config
     (which-key-mode))
 (use-package gruber-darker-theme)
-(load-theme 'gruber-darker t)
+(use-package gruvbox-theme)
+(load-theme 'gruvbox t)
 
 (use-package clang-format)
-
 (setq clang-format-style "file")
+
+(use-package evil)
+(evil-mode 1)
 
 (defun leah/toggle-fold (column)
   (interactive "P")
@@ -63,8 +67,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("7b8f5bbdc7c316ee62f271acf6bcd0e0b8a272fdffe908f8c920b0ba34871d98" default))
  '(package-selected-packages
-   '(which-key company-c-headers gruber-darker-theme company use-package)))
+   '(gruvbox-theme evil which-key company-c-headers gruber-darker-theme company use-package)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

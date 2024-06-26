@@ -43,7 +43,9 @@
   };
 
   nixpkgs.config.allowUnfree = true;
-
+  nixpkgs.config.packageOverrides = pkgs: {
+    renoise = pkgs.renoise.override { releasePath = /opt/renoise/bundle.tar.gz; };
+  };
   programs.dconf.enable = true;
   programs.light.enable = true;
     
@@ -54,6 +56,9 @@
     kitty
     firefox
     prismlauncher
+    gcc
+    rustup
+    clang-tools
     discord
     pavucontrol
     lxappearance
@@ -69,6 +74,9 @@
     just
     unzip
     bottles
+    mpv
+    renoise
+    vlc
   ];
   # services.tlp = {
   #   enable = true;
@@ -125,6 +133,14 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
+    # extraConfig.pipewire."92-low-latency" = {
+    #   context.properties = {
+    #     default.clock.rate = 48000;
+    #     default.clock.quantum = 32;
+    #     default.clock.min-quantum = 32;
+    #     default.clock.max-quantum = 32;
+    #   };
+    # };
   };
   
   services.picom = {
@@ -148,6 +164,13 @@
     enable = true;
     package = pkgs.emacs;
   };
+  services.devmon.enable = true;
+  services.gvfs.enable = true; 
+  services.udisks2.enable = true;
+  services.udev.enable = true;
+  services.udev.extraRules = ''
+    SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="374b", ACTION=="add", GROUP="dialout", MODE="0664"
+  '';
   hardware.opengl.enable = true;
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;  
