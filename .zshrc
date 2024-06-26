@@ -101,6 +101,7 @@
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval "$(direnv hook zsh)"
+source <(fzf --zsh)
 unsetopt BEEP
 
 alias lg="lazygit"
