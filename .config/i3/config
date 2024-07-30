@@ -149,3 +149,5 @@ workspace_layout tabbed
 #exec ~/.screenlayout/default.sh
 exec ~/.screenlayout/default_singlemonitor.sh
 exec ~/.fehbg
+
+exec_always ~/.scripts/kensington.sh
