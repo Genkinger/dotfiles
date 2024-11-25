@@ -144,10 +144,12 @@ client.focused_inactive $darkgray $darkgray $lightgray $purple $darkgray
 client.unfocused        $darkgray $darkgray $lightgray $purple $darkgray
 client.urgent           $red $red $white $red $red
 
-bindsym $mod+d exec "dmenu_run -nf '$lightgray' -nb '$bg' -sb '$lightgray' -sf '$darkgray' -fn 'monospace-10' -p '>>'"
+#bindsym $mod+d exec "dmenu_run -nf '$lightgray' -nb '$bg' -sb '$lightgray' -sf '$darkgray' -fn 'monospace-10' -p '>>'"
+bindsym $mod+d exec "rofi -show drun"
 workspace_layout tabbed
 #exec ~/.screenlayout/default.sh
 exec ~/.screenlayout/default_singlemonitor.sh
 exec ~/.fehbg
 
 exec_always ~/.scripts/kensington.sh
+exec dunst
