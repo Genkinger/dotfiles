@@ -7,10 +7,9 @@ include ./${HOSTNAME}.conf
 map kitty_mod+enter new_window_with_cwd
 map kitty_mod+t new_tab_with_cwd
 
+
+
 font_family      family="mononoki"
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
-font_size        24
-
-
